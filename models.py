@@ -1,4 +1,7 @@
+""" Model for the adopt app"""
 from flask_sqlalchemy import SQLAlchemy
+
+DEFAULT_IMAGE = "https://pixabay.com/illustrations/silhouette-imprint-paw-foot-track-1314467/"
 
 db = SQLAlchemy()
 

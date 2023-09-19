@@ -18,6 +18,10 @@ connect_db(app)
 db.create_all()
 
 @app.route('/')
-def home():
-
+def pets_list():
+    """Displays list of pets"""
     
+    pets = Pet.query.all()
+    return render_template('pet_listing.html', pets= pets)
+
+

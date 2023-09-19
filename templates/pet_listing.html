@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Our Pets</h1>
+
+    {% for pet in pets %}
+        <a href="{{}}"></a>
+        {% if pet.available %} <b>is available!</b> {% endif %}
+
+
+
+{% endblock %}
