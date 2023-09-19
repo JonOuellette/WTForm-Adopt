@@ -1,6 +1,6 @@
-from flask import Flask, request, redirect, render_template, flash
+from flask import Flask, redirect, render_template, flash, url_for
 from flask_debugtoolbar import DebugToolbarExtension
-from forms import
+from forms import AddPetForm
 from models import db, connect_db, Pet
 
 app = Flask(__name__)
@@ -32,4 +32,15 @@ def add_pet():
     form = AddPetForm()
 
     if form.validate_on_submit():
-        
+        pet_name = form.pet_name.data
+        species = form.species.data
+        pet_image = form.pet_image.data
+        age = form.age.data
+        notes = form.notes.data
+        pet = Pet(pet_name= pet_name, species=species, pet_image=pet_image, age=age, notes=notes)
+        db.session.add(pet)
+        db.session.commit()
+        return redirect(url_for('pets_list'))
+    
+    else: 
+        return render_template("add_pet_form.html", form = form)
