@@ -44,3 +44,10 @@ def add_pet():
     
     else: 
         return render_template("add_pet_form.html", form = form)
+    
+@app.route("/<int:pet_id>", methods=["GET", "POST"])
+def edit_pet(pet_id):
+    """Edits the pet information"""
+
+    pet = Pet.query.get_or_404(pet_id)
+    form = EditPetForm()

@@ -14,3 +14,12 @@ class AddPetForm(FlaskForm):
     age = IntegerField("Age", validators=[Optional(), NumberRange(min=0, max=30)])
 
     notes = TextAreaField("Comments", validators=[Optional()])
+
+class EditPetForm(FlaskForm):
+    """Form to edit existing pet information"""
+
+    pet_image = StringField("Photo URL", validators=[Optional(), URL()])
+
+    notes = TextAreaField("Comments", validators=[Optional()])
+
+    available = BooleanField("Available?")
