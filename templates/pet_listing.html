@@ -11,7 +11,7 @@
         <p>No pets yet.</p>
     {% endfor %}
 
-    <a class="btn btn-primary" href="">Add a Pet</a>
+    <a class="btn btn-primary" href="{{ url_for('add_pet') }}">Add a Pet</a>
 
 
 {% endblock %}

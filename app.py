@@ -18,7 +18,7 @@ connect_db(app)
 db.create_all()
 
 @app.route('/')
-def pets_list():
+def pet_list():
     """Displays list of pets"""
     
     pets = Pet.query.all()
@@ -40,7 +40,7 @@ def add_pet():
         pet = Pet(pet_name= pet_name, species=species, pet_image=pet_image, age=age, notes=notes)
         db.session.add(pet)
         db.session.commit()
-        return redirect(url_for('pets_list'))
+        return redirect(url_for('pet_list'))
     
     else: 
         return render_template("add_pet_form.html", form = form)
