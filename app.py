@@ -25,3 +25,11 @@ def pets_list():
     return render_template('pet_listing.html', pets= pets)
 
 
+@app.route('/add', methods=["GET", "POST"])
+def add_pet():
+    """Adds a pet."""
+
+    form = AddPetForm()
+
+    if form.validate_on_submit():
+        

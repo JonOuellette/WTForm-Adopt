@@ -4,9 +4,14 @@
     <h1>Our Pets</h1>
 
     {% for pet in pets %}
-        <a href="{{}}"></a>
+        <img class = "img-thumbnail src="{{ pet.image_url() }}" alt="">
+        <a href="{{ url_for (pet_id=pet.id ) }}"></a>
         {% if pet.available %} <b>is available!</b> {% endif %}
+        {% else %}
+        <p>No pets yet.</p>
+    {% endfor %}
 
+    <a class="btn btn-primary" href="">Add a Pet</a>
 
 
 {% endblock %}
