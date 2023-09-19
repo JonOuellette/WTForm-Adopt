@@ -6,13 +6,15 @@
 
 <form action="" method="POST">
     {{ form.hidden_tag() }}
+
     {% for field in form if field.widget.input_type != 'hidden' %}
-    <p>
-        {{field.label}}
-        {{field}}
-    </p>
+    
+    <div class='form-group'>
+        {{ field.label }}
+        {{ field(class="form-control") }}
+    </div>
     {% endfor %}
-    <button>Add Pet</button>
+    <button class = "btn btn-primary" type="submit">Add Pet</button>
 </form>
 
 {% endblock %}

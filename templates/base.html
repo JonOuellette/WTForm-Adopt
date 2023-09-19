@@ -12,9 +12,17 @@
         <a class="navbar-brand" href="/">Adopt!</a>
     </nav>
     
+    <div class="container">
+
+        {% for msg in get_flashed_messages() %}
+        <div class="alert alert-info">{{ msg }}</div>
+        {% endfor %}
+      
+        {% block content %}
+        {% endblock %}
+      
+      </div>
     
     
-    {% block content %}
-    {% endblock %}
 </body>
 </html>

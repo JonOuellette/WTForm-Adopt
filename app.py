@@ -50,14 +50,14 @@ def edit_pet(pet_id):
     """Edits the pet information"""
 
     pet = Pet.query.get_or_404(pet_id)
-    form = EditPetForm()
+    form = EditPetForm(obj=pet)
 
     if form.validate_on_submit():
         pet.notes = form.notes.data
         pet.available = form.available.data
         pet.pet_image = form.pet_image.data
         db.session.commit()
-        flash(f"{pet.name} updated")
+        flash(f"{pet.pet_name} updated")
         return redirect(url_for('pet_list'))
     
     else:

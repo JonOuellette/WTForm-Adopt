@@ -1,7 +1,8 @@
 """ Model for the adopt app"""
+
 from flask_sqlalchemy import SQLAlchemy
 
-DEFAULT_IMAGE = "https://pixabay.com/illustrations/silhouette-imprint-paw-foot-track-1314467/"
+DEFAULT_IMAGE = "https://cdn.pixabay.com/photo/2016/04/07/18/57/silhouette-1314467_640.png"
 
 db = SQLAlchemy()
 
@@ -17,9 +18,9 @@ class Pet(db.Model):
     notes = db.Column(db.Text, nullable = True)
     available = db.Column(db.Boolean, nullable = False, default = True)
 
-def image_url(self):
-    """Used in url_for method to return image - default image or user provided"""
-    return self.pet_image or DEFAULT_IMAGE
+    def image_url(self):
+        """Used in url_for method to return image - default image or user provided"""
+        return self.pet_image or DEFAULT_IMAGE
 
 def connect_db(app):
     """Connects database to Flask app"""
